@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './HomePage.css'; 
+import '../css/HomePage.css'; 
 
 function HomePage() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function HomePage() {
           <Card className="text-center p-4 custom-card">
             <Card.Body>
               <Card.Title as="h1">Bem-vindo ao Jogo dos Botões!</Card.Title>
-              <Card.Text>
+              <Card.Text as="h3">
                 Selecione o nível de dificuldade para começar o desafio!
               </Card.Text>
 

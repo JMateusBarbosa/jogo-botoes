@@ -15,25 +15,28 @@
 .custom-card {
     width: 100%;
     max-width: 500px;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.6)); 
+    background: linear-gradient(145deg, rgba(13, 82, 167, 0.7), rgba(62, 169, 226, 0.981)); 
     border-radius: 12px;
     box-shadow: 0px 8px 25px rgba(0, 123, 255, 0.6); 
     padding: 20px;
     text-align: center;
-    border: 2px solid rgba(0, 0, 0, 0.1); 
+    border: 2px solid rgba(7, 110, 170, 0.696); 
 }
 
 h1 {
     color: #ffffff; 
     font-family: 'Montserrat', sans-serif; 
-    text-shadow: 2px 2px 8px rgba(0, 123, 255, 0.7); 
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7); 
     font-size: 3rem; 
 }
 
-.Card-text {
+h3 {
     color: #f1f1f1; 
     font-size: 1.2rem;
     margin-bottom: 20px;
+    border: solid;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 button {
