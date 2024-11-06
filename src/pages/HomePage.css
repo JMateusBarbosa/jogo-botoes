@@ -1,0 +1,73 @@
+/* src/pages/HomePage.css */
+
+.home-background {
+    background-image: url('../img/backgroud.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.custom-card {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.6)); 
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0, 123, 255, 0.6); 
+    padding: 20px;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.1); 
+}
+
+h1 {
+    color: #ffffff; 
+    font-family: 'Montserrat', sans-serif; 
+    text-shadow: 2px 2px 8px rgba(0, 123, 255, 0.7); 
+    font-size: 3rem; 
+}
+
+.Card-text {
+    color: #f1f1f1; 
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+button {
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
+    padding: 12px 25px;
+    font-family: 'Poppins', sans-serif; 
+}
+
+button.success {
+    background: linear-gradient(45deg, #00d100, #00b300); 
+    color: white;
+}
+
+button.warning {
+    background: linear-gradient(45deg, #f0ad4e, #ec971f); 
+    color: white;
+}
+
+button.danger {
+    background: linear-gradient(45deg, #e74c3c, #c0392b); 
+    color: white;
+}
+
+button.success:hover {
+    background: linear-gradient(45deg, #00c800, #00b300);
+}
+
+button.warning:hover {
+    background: linear-gradient(45deg, #e67e22, #f39c12);
+}
+
+button.danger:hover {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
