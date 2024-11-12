@@ -1,19 +1,22 @@
-// src/components/Timer.js
 import React, { useState, useEffect } from 'react';
 
-const Timer = ({ initialTime, onTimeUp }) => {
-  const [timeLeft, setTimeLeft] = useState(initialTime);
+const Timer = ({ initialTime, onTimeUp, setTimeLeft }) => {
+  const [timeLeft, setInternalTimeLeft] = useState(initialTime);
 
   useEffect(() => {
     if (timeLeft > 0) {
       const timerId = setInterval(() => {
-        setTimeLeft(prevTime => prevTime - 1);
+        setInternalTimeLeft(prevTime => {
+          const newTime = prevTime - 1;
+          setTimeLeft(newTime); // Atualiza o tempo restante no GamePage
+          return newTime;
+        });
       }, 1000);
       return () => clearInterval(timerId);
     } else {
-      onTimeUp(); // Chama a função de fim de jogo quando o tempo chegar a zero
+      onTimeUp();
     }
-  }, [timeLeft, onTimeUp]);
+  }, [timeLeft, onTimeUp, setTimeLeft]);
 
   return (
     <div>
