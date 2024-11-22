@@ -1,9 +1,8 @@
 // src/pages/HomePage.js
 import React from 'react';
-import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../css/HomePage.css'; 
+import '../css/HomePage.css';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -14,57 +13,48 @@ function HomePage() {
   };
 
   return (
-    <div className="home-background"> {/* Div principal com fundo personalizado */}
-      <Container className="d-flex flex-column align-items-center mt-5">
+    <main className="home-background">
+      <section className="card-container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <Card className="text-center p-4 custom-card">
-            <Card.Body>
-              <Card.Title as="h1">Bem-vindo ao Jogo dos Botões!</Card.Title>
-              <Card.Text as="h3">
-                Selecione o nível de dificuldade para começar o desafio!
-              </Card.Text>
-
-              <Row className="mt-4">
-                <Col>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Button variant="success" size="lg" onClick={() => handleStartGame('fácil')}>
-                      Fácil
-                    </Button>
-                  </motion.div>
-                </Col>
-                <Col>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Button variant="warning" size="lg" onClick={() => handleStartGame('médio')}>
-                      Médio
-                    </Button>
-                  </motion.div>
-                </Col>
-                <Col>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Button variant="danger" size="lg" onClick={() => handleStartGame('difícil')}>
-                      Difícil
-                    </Button>
-                  </motion.div>
-                </Col>
-              </Row>
-            </Card.Body>
-          </Card>
+          <article className="custom-card">
+            <h1>Bem-vindo ao Jogo dos Botões!</h1>
+            <p className="description">
+              Selecione o nível de dificuldade para começar o desafio!
+            </p>
+            <div className="button-row">
+              <motion.button
+                className="button success"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleStartGame('fácil')}
+              >
+                Fácil
+              </motion.button>
+              <motion.button
+                className="button warning"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleStartGame('médio')}
+              >
+                Médio
+              </motion.button>
+              <motion.button
+                className="button danger"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => handleStartGame('difícil')}
+              >
+                Difícil
+              </motion.button>
+            </div>
+          </article>
         </motion.div>
-      </Container>
-    </div>
+      </section>
+    </main>
   );
 }
 

@@ -1,15 +1,101 @@
-/* src/pages/css/GamePage.css */
+.game-header {
+  text-align: center; /* Centraliza todo o conteúdo no cabeçalho */
+  margin-bottom: 20px; /* Espaçamento abaixo do cabeçalho */
+}
 
+.game-title {
+  font-size: 2rem; /* Tamanho do título */
+  color: #333; /* Cor escura */
+  margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+.difficulty-indicator {
+  font-size: 1.2rem; /* Tamanho menor para a dificuldade */
+  color: #555; /* Cor mais suave */
+  margin: 5px 0 20px 0; /* Espaçamento */
+}
+
+.timer {
+  font-size: 1.5rem; /* Tamanho maior para o tempo */
+  color: #ff5733; /* Cor vibrante para o tempo */
+  font-weight: bold;
+  margin: 10px 0; /* Espaçamento ao redor */
+}
 .game-container {
-    text-align: center;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center; /* Centraliza no eixo X */
+  align-items: center; /* Centraliza no eixo Y */
+  height: 100vh; /* Ocupa toda a altura da tela */
+  flex-direction: column; /* Organiza os itens na vertical */
+}
+.endgame-message {
+  text-align: center; /* Centraliza o conteúdo */
+  margin-bottom: 20px; /* Espaçamento inferior para separar dos botões */
+}
+
+.endgame-title {
+  font-size: 2rem; /* Tamanho maior para o título */
+  color: #333; /* Cor escura */
+  margin: 0; /* Remove margens padrão */
+}
+
+.endgame-score {
+  font-size: 1.2rem; /* Tamanho menor que o título */
+  color: #555; /* Cor levemente mais clara */
+  margin: 10px 0 0 0; /* Espaçamento acima */
+}
+
+.endgame-button-container {
+  display: flex; /* Garante que os botões fiquem lado a lado */
+  justify-content: center; /* Centraliza os botões no contêiner */
+  gap: 16px; /* Espaçamento entre os botões */
+  margin-top: 20px;
+}
+
+.endgame-button {
+  margin: 0;
+  padding: 12px 20px;
+  font-size: 1rem;
+  width: 150px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.endgame-button:hover {
+  background-color: #218838;
+}
+
+.endgame-button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+  .game-title {
+    font-size: 1.8rem; /* Ajuste do tamanho do título em telas menores */
   }
-  
+
+  .difficulty-indicator {
+    font-size: 1rem;
+  }
+
   .timer {
-    font-weight: bold;
-    color: #ff6347;
+    font-size: 1.2rem;
   }
-  
-  button {
-    margin: 10px;
+
+  .endgame-title {
+    font-size: 1.8rem;
   }
+
+  .endgame-score {
+    font-size: 1rem;
+  }
+
+  .endgame-button {
+    width: 120px; /* Ajusta largura em telas menores */
+    font-size: 0.9rem;
+  }
+}

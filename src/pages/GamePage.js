@@ -1,101 +1,93 @@
-// src/pages/GamePage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button } from 'react-bootstrap';
 import ButtonGrid from '../components/ButtonGrid';
 import Timer from '../components/Timer';
 import '../css/GamePage.css';
 
 function GamePage() {
-  const [score, setScore] = useState(0);
-  const [isGameOver, setIsGameOver] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(null); // Armazena o tempo restante
-
   const location = useLocation();
   const navigate = useNavigate();
-  const { difficulty } = location.state || { difficulty: 'fácil' };
+  const { difficulty = 'fácil' } = location.state || {};
 
-  // Define o tempo inicial com base na dificuldade
-  let initialTime;
-  let scoreBase;
-  switch (difficulty) {
-    case 'médio':
-      initialTime = 15;
-      scoreBase = 200;
-      break;
-    case 'difícil':
-      initialTime = 10;
-      scoreBase = 300;
-      break;
-    case 'fácil':
-    default:
-      initialTime = 20;
-      scoreBase = 100;
-      break;
-  }
+  const [score, setScore] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(null);
 
-  // Função para incrementar a pontuação
-  const handleButtonClick = () => {
-    setScore(prevScore => prevScore + 1);
+  // Configuração baseada na dificuldade
+  const difficultyConfig = {
+    fácil: { initialTime: 20, scoreBase: 100 },
+    médio: { initialTime: 15, scoreBase: 200 },
+    difícil: { initialTime: 10, scoreBase: 300 },
   };
 
-  // Função chamada quando o tempo acaba
-  const handleTimeUp = () => {
-    calculateFinalScore(0); // Calcula a pontuação final com tempo 0
-    setIsGameOver(true);
-  };
+  const { initialTime, scoreBase } = difficultyConfig[difficulty];
 
-  // Finaliza o jogo se todos os botões forem clicados
-  const handleGameComplete = () => {
-    calculateFinalScore(timeLeft); // Calcula a pontuação final com o tempo restante
-    setIsGameOver(true);
-  };
-
-  // Função para calcular a pontuação final
-  const calculateFinalScore = (remainingTime) => {
-    const difficultyMultiplier = difficulty === 'fácil' ? 1 : difficulty === 'médio' ? 1.5 : 2;
-    const finalScore = Math.round((score * difficultyMultiplier) + remainingTime * 0.5);
-    setScore(finalScore);
-  };
-
-  // Função para reiniciar o jogo
+  // Reset dos estados ao reiniciar
   const handleRestart = () => {
     setScore(0);
     setIsGameOver(false);
     setTimeLeft(initialTime);
   };
 
-  // Função para voltar para a HomePage
-  const handleGoHome = () => {
-    navigate('/'); // Navega para a rota inicial (HomePage)
+  // Calcular pontuação final
+  const calculateFinalScore = (remainingTime) => {
+    const difficultyMultiplier = difficulty === 'fácil' ? 1 : difficulty === 'médio' ? 1.5 : 2;
+    return Math.round(score * difficultyMultiplier + remainingTime * 0.5);
   };
 
+  const handleGameComplete = () => {
+    setScore((prevScore) => calculateFinalScore(timeLeft));
+    setIsGameOver(true);
+  };
+
+  const handleGoHome = () => {
+    navigate('/');
+  };
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      handleGameComplete();
+    }
+  }, [timeLeft]);
+
   return (
-    <Container className="game-container">
-      <Row className="justify-content-center mt-4">
-        <Col md="auto">
-          <h2>Jogo dos Botões</h2>
-          {isGameOver ? (
-            <>
-              <p>Jogo Finalizado! Pontuação Final: {score}</p>
-              <Button onClick={handleRestart} className="mr-2">Jogar Novamente</Button>
-              <Button onClick={handleGoHome}>Voltar para o Início</Button>
-            </>
-          ) : (
-            <>
-              
-              <Timer initialTime={initialTime} onTimeUp={handleTimeUp} setTimeLeft={setTimeLeft} />
-              <p>Dificuldade: {difficulty}</p>
-            </>
-          )}
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
+    <div className="game-container">
+      <div className="game-header">
         {!isGameOver && (
-          <ButtonGrid onButtonClick={handleButtonClick} onComplete={handleGameComplete} difficulty={difficulty} />
+          <>
+            <h1 className="game-title">Jogo em Andamento</h1>
+            <p className="difficulty-indicator">Dificuldade: {difficulty}</p>
+            <Timer
+              initialTime={initialTime}
+              onTimeUp={() => setTimeLeft(0)}
+              setTimeLeft={setTimeLeft}
+            />
+          </>
         )}
-      </Row>
-    </Container>
+
+        {isGameOver && (
+          <>
+            <div className="endgame-message">
+              <h2 className="endgame-title">Jogo Finalizado!</h2>
+              <p className="endgame-score">Pontuação Final: {score}</p>
+            </div>
+            <div className="endgame-button-container">
+              <button onClick={handleRestart} className="endgame-button">Jogar Novamente</button>
+              <button onClick={handleGoHome} className="endgame-button">Voltar para o Início</button>
+            </div>
+          </>
+        )}
+      </div>
+      {!isGameOver && (
+        <div className="game-grid">
+          <ButtonGrid
+            onButtonClick={() => setScore((prev) => prev + scoreBase)}
+            onComplete={handleGameComplete}
+            difficulty={difficulty}
+          />
+        </div>
+      )}
+    </div>
   );
 }
 

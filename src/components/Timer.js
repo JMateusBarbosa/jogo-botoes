@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../css/GamePage.css';
 
 const Timer = ({ initialTime, onTimeUp, setTimeLeft }) => {
   const [timeLeft, setInternalTimeLeft] = useState(initialTime);

@@ -1,35 +1,31 @@
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  max-width: 400px;
+  margin: auto;
+}
+
 .game-button {
-  width: 100%;
+  width: 80px;
   height: 80px;
-  font-size: 1.5rem;
-  margin: 5px 0;
-  background-color: #08f14e; /* Verde padrão */
+  font-size: 1rem;
+  background-color: #08f14e;
   color: white;
   border: none;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Melhor transição */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Classe 'clicked' para aplicar a cor vermelha permanente */
 .game-button.clicked {
-  background-color: #f44336 !important; /* Vermelho quando clicado */
+  background-color: #f44336;
 }
 
-/* Evita que a cor do botão mude ao focar ou passar o mouse */
-.game-button:focus,
-.game-button:hover {
-  background-color: #f44336 !important; /* Mantém o vermelho */
-  transform: scale(1.05);
-}
-
-.button-col {
-  padding: 5px;
-}
-
-p {
-  color: #000802;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  border: solid 2px ;
-  border-radius: 10px;
-  padding: 5px;
+@media (max-width: 600px) {
+  .game-button {
+    width: 60px;
+    height: 60px;
+  }
 }
