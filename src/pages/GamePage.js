@@ -15,9 +15,9 @@ function GamePage() {
 
   // Configuração baseada na dificuldade
   const difficultyConfig = {
-    fácil: { initialTime: 20, scoreBase: 100 },
-    médio: { initialTime: 15, scoreBase: 200 },
-    difícil: { initialTime: 10, scoreBase: 300 },
+    fácil: { initialTime: 15, scoreBase: 100 },
+    médio: { initialTime: 12, scoreBase: 200 },
+    difícil: { initialTime: 8, scoreBase: 300 },
   };
 
   const { initialTime, scoreBase } = difficultyConfig[difficulty];
@@ -32,7 +32,8 @@ function GamePage() {
   // Calcular pontuação final
   const calculateFinalScore = (remainingTime) => {
     const difficultyMultiplier = difficulty === 'fácil' ? 1 : difficulty === 'médio' ? 1.5 : 2;
-    return Math.round(score * difficultyMultiplier + remainingTime * 0.5);
+    const rawScore = score * difficultyMultiplier + remainingTime * 0.5;
+    return parseFloat(rawScore.toFixed(2));
   };
 
   const handleGameComplete = () => {
@@ -52,41 +53,43 @@ function GamePage() {
 
   return (
     <div className="game-container">
-      <div className="game-header">
+      <div className="game-box">
+        <div className="game-header">
+          {!isGameOver && (
+            <>
+              <h1 className="game-title">Jogo em Andamento</h1>
+              <p className="difficulty-indicator">Dificuldade: {difficulty}</p>
+              <Timer
+                initialTime={initialTime}
+                onTimeUp={() => setTimeLeft(0)}
+                setTimeLeft={setTimeLeft}
+              />
+            </>
+          )}
+  
+          {isGameOver && (
+            <>
+              <div className="endgame-message">
+                <h2 className="endgame-title">Jogo Finalizado!</h2>
+                <p className="endgame-score">Pontuação Final: {score}</p>
+              </div>
+              <div className="endgame-button-container">
+                <button onClick={handleRestart} className="endgame-button">Jogar Novamente</button>
+                <button onClick={handleGoHome} className="endgame-button">Voltar para o Início</button>
+              </div>
+            </>
+          )}
+        </div>
         {!isGameOver && (
-          <>
-            <h1 className="game-title">Jogo em Andamento</h1>
-            <p className="difficulty-indicator">Dificuldade: {difficulty}</p>
-            <Timer
-              initialTime={initialTime}
-              onTimeUp={() => setTimeLeft(0)}
-              setTimeLeft={setTimeLeft}
+          <div className="game-grid">
+            <ButtonGrid
+              onButtonClick={() => setScore((prev) => prev + scoreBase)}
+              onComplete={handleGameComplete}
+              difficulty={difficulty}
             />
-          </>
-        )}
-
-        {isGameOver && (
-          <>
-            <div className="endgame-message">
-              <h2 className="endgame-title">Jogo Finalizado!</h2>
-              <p className="endgame-score">Pontuação Final: {score}</p>
-            </div>
-            <div className="endgame-button-container">
-              <button onClick={handleRestart} className="endgame-button">Jogar Novamente</button>
-              <button onClick={handleGoHome} className="endgame-button">Voltar para o Início</button>
-            </div>
-          </>
+          </div>
         )}
       </div>
-      {!isGameOver && (
-        <div className="game-grid">
-          <ButtonGrid
-            onButtonClick={() => setScore((prev) => prev + scoreBase)}
-            onComplete={handleGameComplete}
-            difficulty={difficulty}
-          />
-        </div>
-      )}
     </div>
   );
 }

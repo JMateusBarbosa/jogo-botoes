@@ -1,54 +1,78 @@
+:root {
+  --color-primary: #0d52a7;
+  --color-secondary: #3ea9e2;
+  --color-white: #ffffff;
+  
+}
+
+
 .game-header {
-  text-align: center; /* Centraliza todo o conteúdo no cabeçalho */
-  margin-bottom: 20px; /* Espaçamento abaixo do cabeçalho */
+  text-align: center; 
+  margin-bottom: 20px; 
+  
 }
 
 .game-title {
-  font-size: 2rem; /* Tamanho do título */
-  color: #333; /* Cor escura */
-  margin-bottom: 10px; /* Espaçamento inferior */
+  font-size: 2rem; 
+  color: #faf9f9; 
+  margin-bottom: 10px; 
 }
 
 .difficulty-indicator {
-  font-size: 1.2rem; /* Tamanho menor para a dificuldade */
-  color: #555; /* Cor mais suave */
-  margin: 5px 0 20px 0; /* Espaçamento */
+  font-size: 1.2rem; 
+  color: #f9f9f9; 
+  margin: 5px 0 20px 0; 
 }
 
 .timer {
-  font-size: 1.5rem; /* Tamanho maior para o tempo */
-  color: #ff5733; /* Cor vibrante para o tempo */
+  font-size: 1.3rem; 
+  color: #fffefe; 
   font-weight: bold;
-  margin: 10px 0; /* Espaçamento ao redor */
+  margin: 10px 0; 
 }
 .game-container {
   display: flex;
-  justify-content: center; /* Centraliza no eixo X */
-  align-items: center; /* Centraliza no eixo Y */
-  height: 100vh; /* Ocupa toda a altura da tela */
-  flex-direction: column; /* Organiza os itens na vertical */
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  background-image: url('../img/background.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+}
+.game-box {
+  background-color: #fff; 
+  width: 70%; 
+  max-width: 800px;
+  padding: 20px; 
+  padding-bottom: 25px;
+  border-radius: 10px; 
+  background: linear-gradient(145deg, var(--color-primary), var(--color-secondary));
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
 }
 .endgame-message {
-  text-align: center; /* Centraliza o conteúdo */
-  margin-bottom: 20px; /* Espaçamento inferior para separar dos botões */
+  text-align: center; 
+  margin-bottom: 20px; 
 }
 
 .endgame-title {
-  font-size: 2rem; /* Tamanho maior para o título */
-  color: #333; /* Cor escura */
-  margin: 0; /* Remove margens padrão */
+  font-size: 2rem; 
+  color: #ffffff; 
+  margin: 0; 
 }
 
 .endgame-score {
-  font-size: 1.2rem; /* Tamanho menor que o título */
-  color: #555; /* Cor levemente mais clara */
-  margin: 10px 0 0 0; /* Espaçamento acima */
+  font-size: 1.2rem; 
+  color: #ffffff; 
+  margin: 10px 0 0 0; 
 }
 
 .endgame-button-container {
-  display: flex; /* Garante que os botões fiquem lado a lado */
-  justify-content: center; /* Centraliza os botões no contêiner */
-  gap: 16px; /* Espaçamento entre os botões */
+  display: flex; 
+  justify-content: center; 
+  gap: 16px; 
   margin-top: 20px;
 }
 
@@ -75,9 +99,12 @@
 
 @media (max-width: 600px) {
   .game-title {
-    font-size: 1.8rem; /* Ajuste do tamanho do título em telas menores */
+    font-size: 1.8rem;
   }
-
+  .game-box {
+    width: 90%; 
+    padding: 15px; 
+  }
   .difficulty-indicator {
     font-size: 1rem;
   }
@@ -95,7 +122,7 @@
   }
 
   .endgame-button {
-    width: 120px; /* Ajusta largura em telas menores */
+    width: 120px; 
     font-size: 0.9rem;
   }
 }

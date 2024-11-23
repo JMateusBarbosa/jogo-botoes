@@ -4,7 +4,7 @@ import '../css/ButtonGrid.css';
 function ButtonGrid({ onButtonClick, onComplete, difficulty = 'fácil' }) {
   const [clickedButtons, setClickedButtons] = useState(new Set());
 
-  const buttonCount = { fácil: 4, médio: 9, difícil: 12 }[difficulty];
+  const buttonCount = { fácil: 8, médio: 12, difícil: 24 }[difficulty];
 
   const handleButtonClick = (index) => {
     if (!clickedButtons.has(index)) {

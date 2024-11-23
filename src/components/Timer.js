@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/GamePage.css';
 
 const Timer = ({ initialTime, onTimeUp, setTimeLeft }) => {
+  const [startTime] = useState(Date.now());
   const [timeLeft, setInternalTimeLeft] = useState(initialTime);
 
   useEffect(() => {
-    if (timeLeft > 0) {
-      const timerId = setInterval(() => {
-        setInternalTimeLeft(prevTime => {
-          const newTime = prevTime - 1;
-          setTimeLeft(newTime); // Atualiza o tempo restante no GamePage
-          return newTime;
-        });
-      }, 1000);
-      return () => clearInterval(timerId);
-    } else {
-      onTimeUp();
-    }
-  }, [timeLeft, onTimeUp, setTimeLeft]);
+    const timerId = setInterval(() => {
+      const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+      const remainingTime = initialTime - elapsedTime;
 
-  return (
-    <div>
-      <p>Tempo Restante: {timeLeft} segundos</p>
-    </div>
-  );
+      if (remainingTime <= 0) {
+        setInternalTimeLeft(0);
+        setTimeLeft(0); // Sincronizar com o GamePage
+        clearInterval(timerId);
+        onTimeUp(); // Notifica o GamePage que o tempo acabou
+      } else {
+        setInternalTimeLeft(remainingTime);
+        setTimeLeft(remainingTime); // Atualiza o GamePage
+      }
+    }, 100);
+
+    return () => clearInterval(timerId); // Limpa o intervalo quando o componente desmontar
+  }, [startTime, initialTime, setTimeLeft, onTimeUp]);
+
+  return <p className='timer'>Tempo Restante: {timeLeft} segundos</p>;
 };
 
 export default Timer;
