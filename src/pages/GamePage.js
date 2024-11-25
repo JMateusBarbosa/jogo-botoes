@@ -15,9 +15,9 @@ function GamePage() {
 
   // Configuração baseada na dificuldade
   const difficultyConfig = {
-    fácil: { initialTime: 15, scoreBase: 100 },
-    médio: { initialTime: 12, scoreBase: 200 },
-    difícil: { initialTime: 8, scoreBase: 300 },
+    fácil: { initialTime: 12, scoreBase: 50 },
+    médio: { initialTime: 10, scoreBase: 50 },
+    difícil: { initialTime: 8, scoreBase: 50 },
   };
 
   const { initialTime, scoreBase } = difficultyConfig[difficulty];

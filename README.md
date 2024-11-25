@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# 🎮 Sistema de Jogo Interativo - React Game System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18.0-blue" alt="React Badge"/>
+  <img src="https://img.shields.io/badge/Status-Development-yellow" alt="Status Badge"/>
+</p>
 
-## Available Scripts
+## 📑 Índice
 
-In the project directory, you can run:
+- [Descrição do Projeto](#-descrição-do-projeto)
+- [Status do Projeto](#-status-do-projeto)
+- [Funcionalidades](#-funcionalidades)
+- [Acesso ao Projeto](#-acesso-ao-projeto)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Pessoas Contribuidoras](#-pessoas-contribuidoras)
+- [Licença](#-licença)
 
-### `npm start`
+## 📖 Descrição do Projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este é um sistema de jogo interativo desenvolvido em React, onde os usuários podem selecionar níveis de dificuldade, ganhar pontuações baseadas em seu desempenho e acompanhar o progresso por meio de um temporizador dinâmico.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚧 Status do Projeto
 
-### `npm test`
+🚀 Em desenvolvimento: O sistema está funcional e estruturado, mas melhorias contínuas estão sendo implementadas, como ajustes no design e otimização de componentes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Funcionalidades
 
-### `npm run build`
+- Seleção de níveis de dificuldade: Fácil, Médio e Difícil.
+- Sistema de pontuação dinâmica com cálculos baseados em desempenho e tempo restante.
+- Temporizador interativo que controla a duração do jogo.
+- Reinício e navegação fluida entre as páginas.
+- Design responsivo, adaptado para diferentes dispositivos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🌐 Acesso ao Projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/JMateusBarbosa/jogo-botoes.git
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o servidor localmente:
+   ```bash
+   npm start
+   ```
+4. Acesse a aplicação em: `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tecnologias Utilizadas
 
-### `npm run eject`
+- **React** - Biblioteca principal para construção da interface.
+- **React Router** - Gerenciamento de rotas entre as páginas.
+- **CSS Modular** - Estilização personalizada de componentes.
+- **HTML5** - Estruturação semântica das páginas.
+- **JavaScript (ES6)** - Lógica e interatividade da aplicação.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🤝 Pessoas Contribuidoras
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Este projeto foi desenvolvido individualmente até o momento, mas futuras contribuições são bem-vindas!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📜 Licença
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Este projeto está sob a licença [MIT](https://opensource.org/licenses/MIT).
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">Desenvolvido com 💻 e ☕ por João Mateus</p>

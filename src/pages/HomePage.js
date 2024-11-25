@@ -21,7 +21,7 @@ function HomePage() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <article className="custom-card">
-            <h1>Bem-vindo ao Jogo dos Botões!</h1>
+            <h1>Bem-vindo ao React Game System!</h1>
             <p className="description">
               Selecione o nível de dificuldade para começar o desafio!
             </p>
